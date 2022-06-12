@@ -1,0 +1,116 @@
+
+* {
+box-sizing: border-box;
+}
+.row
+{
+width: 100%;
+border:1px solid black ;
+position:relative;        
+margin-top: 15px;
+margin-bottom: 15px;
+padding-left: 15px;
+padding-right: 15px;
+}
+h1 {
+margin-bottom: 15px;
+text-align: center;
+
+}    
+.sub-heading
+{        
+
+text-align: right;  
+font-size:large ;   
+
+}
+.sub1
+{
+
+border: 1px solid black;
+margin-left: 15px;
+text-align: center;
+padding-left: 15px;
+padding-right: 15px;
+
+
+}
+.heading1
+{
+background-color :chartreuse;
+}
+.heading2
+{
+background-color :yellow;
+}
+.heading3
+{
+background-color :cadetblue;
+}
+.section1 {
+width: 100%;
+height: 250px;
+border: 2px solid black;
+color: black;
+background-color:gray;   
+
+font-family: Arial, Helvetica, sans-serif;
+
+
+
+}
+/********** Large devices only **********/
+@media (min-width: 992px) {
+.col-lg-1 {
+float: left;
+/*border: 1px solid black;*/
+border : 1px;
+
+}
+.col-lg-1
+{
+width: 33.32%;  
+}  
+
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+.col-md-1,.col-md-2
+{
+float: left;
+/* border: 1px solid black;*/
+border : 1px;
+
+}
+.col-md-1 {
+width:50%;
+}
+.col-md-2{
+
+width:100%;
+
+}
+
+
+
+}
+/********** small devices only **********/
+@media (max-width: 767px) {
+.col-sd-1, .col-sd-2, .col-sd-3
+{
+float: left;
+/*border: 1px solid black;*/
+border : 1px;
+}
+.col-sd-1 {
+width: 100%;
+}
+.col-sd-2 {
+width: 16.66%;
+}
+.col-sd-3 {
+width: 25%;
+}
+}
