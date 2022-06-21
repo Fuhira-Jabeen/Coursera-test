@@ -65,3 +65,9 @@ for (var i = 0; i < names.length; i++) {
 }
 
 })();
+function SayHello(){
+var title = document.querySelector("h1").textContent;
+
+title += "Hi Again!!";
+document.querySelector("h1").textContent=title;
+}
