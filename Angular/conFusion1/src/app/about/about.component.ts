@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Leader } from '../shared/leader';
+import { Leader } from '../shared/Leader';
 import { LeaderService } from '../services/leader.service';
 
 
@@ -17,7 +17,9 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     //this.dish = this.dishservice.getFeaturedDish();
-    this.leaders = this.leaderService.getLeaders();
+   // this.leaders = this.leaderService.getLeaders();
+   this.leaderService.getLeaders()
+   .then(leaders => this.leaders = leaders);
     
   }
 

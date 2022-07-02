@@ -9,7 +9,7 @@ import { DISHES } from '../shared/dishes';
 export class DishService {
 
   constructor() { }
-getDishes(): Dish[]{
+/*getDishes(): Dish[]{
   return DISHES;
 }
   getDish(id: string): Dish {
@@ -19,7 +19,19 @@ getDishes(): Dish[]{
   getFeaturedDish(): Dish {
     return DISHES.filter((dish) => dish.featured)[0];
   }
+*/
 
+getDishes(): Promise<Dish[]> {
+  return Promise.resolve(DISHES);
+}
+
+getDish(id: string): Promise<Dish> {
+  return Promise.resolve(DISHES.filter((dish) => (dish.id === id))[0]);
+}
+
+getFeaturedDish(): Promise<Dish> {
+  return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
+}
 
 
 }
