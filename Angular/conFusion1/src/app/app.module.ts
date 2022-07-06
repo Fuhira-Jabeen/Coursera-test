@@ -35,6 +35,7 @@ import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
 import { baseURL } from './shared/baseurl';
 import { LeaderService } from './services/leader.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LeaderService } from './services/leader.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
     
   ],
 
