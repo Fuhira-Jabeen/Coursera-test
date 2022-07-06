@@ -18,7 +18,7 @@ import{MatSliderModule} from '@angular/material/slider';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms'; 
 import {HttpClientModule} from '@angular/common/http';
-
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { AppComponent } from './app.component';
 
 import 'hammerjs';
@@ -76,6 +76,7 @@ import { LeaderService } from './services/leader.service';
     DishService,
     PromotionService,
     LeaderService,
+    ProcessHTTPMsgService,
     {provide :'BaseURL',useValue:baseURL}
   ],
   entryComponents: [
