@@ -6,7 +6,7 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
+  <div fxFlex="40"  [@visibility]="visibility">
 
     <div fxflex *ngIf="dish">
         <mat-card>
@@ -42,7 +42,7 @@
 </div>
   </div>
 
-  <div fxFlex="40" >      
+  <div fxFlex="40"  [@visibility]="visibility">
            
         <mat-list fxFlex *ngIf="dish" >
             <h3>Comments</h3>     
@@ -63,7 +63,7 @@
           </mat-list>
      </div>
 
-     <div fxFlex fxFlexOffset="20px" class="form-size">
+     <div fxFlex fxFlexOffset="20px" class="form-size" [@visibility] ="visibility" >
       <h5>Enter Your Comment here!</h5>         
         <form novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
         <p>
