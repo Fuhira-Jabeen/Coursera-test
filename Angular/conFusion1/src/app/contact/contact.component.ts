@@ -1,7 +1,8 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { Feedback,ContactType } from '../shared/feedback';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
-import { flyInOut } from '../animations/app.animations';
+import { expand, flyInOut } from '../animations/app.animations';
+import { FeedbackService } from '../services/feedback.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -11,7 +12,8 @@ import { flyInOut } from '../animations/app.animations';
     'style': 'display: block;'
     },
     animations: [
-      flyInOut()
+      flyInOut(),
+      expand()
     ]
 })
 export class ContactComponent implements OnInit {
@@ -19,7 +21,12 @@ export class ContactComponent implements OnInit {
   feedbackForm :FormGroup;
   feedback :Feedback;
   contactType = ContactType;
+  //dishcopy :Dish;
+  feedbackcopy : Feedback;
+  errMess: string;
   @ViewChild('fform') feedbackFormDirective;
+  submitting = false;
+  submitted = false;
 
   formErrors = {
     'firstname': '',
@@ -29,7 +36,7 @@ export class ContactComponent implements OnInit {
   };
 
 
-  constructor( private fb : FormBuilder) {
+  constructor( private fb : FormBuilder,private feedbackservice : FeedbackService) {
 
 this.createForm();
 
@@ -39,9 +46,20 @@ this.createForm();
   }
 
   onSubmit() {
+    this.submitting = true;
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
-    this.feedbackForm.reset({
+    this.feedbackservice.SubmitFeedback(this.feedback)
+    .subscribe(feedback => {
+      this.feedback = feedback;
+      this.feedbackcopy = feedback;
+      this.submitting = false;
+      this.submitted = true;
+    });
+    //errmess => { this.feedback = null; this.feedbackcopy = null; this.errMess = <any>errmess; });
+    setTimeout(() => {
+      this.submitted = false;
+     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
       telnum: '',
@@ -51,7 +69,8 @@ this.createForm();
       message: ''
     });
     this.feedbackFormDirective.resetForm();
-  }
+  },5000);
+}
   createForm()
   {
     this.feedbackForm = this.fb.group({
